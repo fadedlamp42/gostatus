@@ -37,6 +37,7 @@ be sure to submit a PR and help this project grow!
 - [ ] Support single-bar usage
 - [ ] Support other RSS readers ([RSS Guard](https://github.com/martinrotter/rssguard) support is currently hard-coded)
 - [ ] Add multi-core support to `CPU`
+- [ ] Replace `os/exec` usage with direct library call
 - [ ] Port all applicable [slstatus components](https://github.com/drkhsh/slstatus/tree/master/components)
 
 ## Support
