@@ -1,4 +1,5 @@
 # gostatus
+![image](https://i.imgur.com/BHhU7yK.png)
 gostatus is an ergonmic status monitor alternative to [slstatus](https://github.com/drkhsh/slstatus).
 
 ## Features
