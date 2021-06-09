@@ -1,7 +1,7 @@
 # gostatus
 ![image](https://i.imgur.com/BHhU7yK.png)
 
-gostatus is an ergonmic status monitor alternative to [slstatus](https://github.com/drkhsh/slstatus).
+gostatus is an ergonomic status monitor alternative to [slstatus](https://github.com/drkhsh/slstatus).
 
 ## Features
 * Single configuration file (config.go)
@@ -37,6 +37,7 @@ be sure to submit a PR and help this project grow!
 - [ ] Support single-bar usage
 - [ ] Support other RSS readers ([RSS Guard](https://github.com/martinrotter/rssguard) support is currently hard-coded)
 - [ ] Add multi-core support to `CPU`
+- [ ] Replace `os/exec` usage with direct library call
 - [ ] Port all applicable [slstatus components](https://github.com/drkhsh/slstatus/tree/master/components)
 
 ## Support
