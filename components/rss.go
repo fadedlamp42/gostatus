@@ -32,7 +32,8 @@ func NewRSS(width int, seperator string) *RSS {
 		os.Exit(1)
 	}
 
-	rows, err := db.Query("SELECT title FROM Messages ORDER BY random()")
+	//rows, err := db.Query("SELECT title FROM Messages ORDER BY random()")
+	rows, err := db.Query("SELECT title FROM Messages ORDER BY date_created DESC LIMIT 20;")
 	if err != nil {
 		fmt.Printf("ERROR: could not execute query (%v)\n", err);
 		os.Exit(1)
