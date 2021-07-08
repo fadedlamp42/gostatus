@@ -13,11 +13,10 @@ func buildTopBar() model.Bar {
 		Edges: [2]string {"[", "]"},
 		Components: []model.Component{
 			&components.Time{},
-			components.NewZonedTime("America/Los_Angeles", "PST"),
 			components.NewCPU(),
 			&components.RAM{},
-			&components.Song{},
 			&components.Volume{},
+			components.NewBattery("BAT0"),
 		},
 	}
 }
