@@ -16,6 +16,7 @@ func buildTopBar() model.Bar {
 			components.NewZonedTime("America/Los_Angeles", "PST"),
 			components.NewCPU(),
 			&components.RAM{},
+			components.NewNetwork("enp0s31f6"),
 			&components.Song{},
 			&components.Volume{},
 		},
