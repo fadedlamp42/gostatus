@@ -24,7 +24,7 @@ func NewBattery(id string) *Battery {
 func (b* Battery) amount() int64 {
 	file, err := os.Open(fmt.Sprintf("/sys/class/power_supply/%s/capacity", b.identifier))
 	if err != nil {
-		fmt.Errorf("ERROR(%v)", err)
+		fmt.Println(fmt.Errorf("ERROR(%v)", err))
 		return -1
 	}
 	defer file.Close()
@@ -34,7 +34,7 @@ func (b* Battery) amount() int64 {
 
 	n, err := strconv.ParseInt(scanner.Text(), 10, 32)
 	if err != nil {
-		fmt.Errorf("ERROR(%v)", err)
+		fmt.Println(fmt.Errorf("ERROR(%v)", err))
 		return -1
 	}
 
@@ -50,7 +50,7 @@ func (b* Battery) amount() int64 {
 func (b* Battery) status() byte {
 	file, err := os.Open(fmt.Sprintf("/sys/class/power_supply/%s/status", b.identifier))
 	if err != nil {
-		fmt.Errorf("ERROR(%v)", err)
+		fmt.Println(fmt.Errorf("ERROR(%v)", err))
 		return 'E'
 	}
 	defer file.Close()
