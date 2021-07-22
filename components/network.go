@@ -17,6 +17,7 @@ func (n *Network) Render() string {
 	current := readStats(n.interfaceName)
 	down := current.down - n.previous.down
 	up := current.up - n.previous.up
+	n.previous = current
 
 	return fmt.Sprintf("D/U: %s/%s", humanBytes(down), humanBytes(up))
 }
