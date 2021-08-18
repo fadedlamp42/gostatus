@@ -5,7 +5,7 @@ import (
 	"github.com/fadedlamp42/gostatus/components"
 )
 
-const UPDATES_PER_SECOND = 2
+const UPDATES_PER_SECOND = 0.5
 
 func buildTopBar() model.Bar {
 	return model.Bar{
@@ -17,7 +17,6 @@ func buildTopBar() model.Bar {
 			&components.RAM{},
 			components.NewNetwork("wlp3s0"),
 			&components.Volume{},
-			components.NewBattery("BAT0"),
 		},
 	}
 }
@@ -27,7 +26,7 @@ func buildBottomBar() model.Bar {
 		Seperator: '|',
 		Edges: [2]string{"", ""},
 		Components: []model.Component{
-			components.NewRSS(170, "  |  "),
+			components.NewBattery("BAT0"),
 		},
 	}
 }
