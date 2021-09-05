@@ -27,6 +27,7 @@ func buildBottomBar() model.Bar {
 		Edges: [2]string{"", ""},
 		Components: []model.Component{
 			components.NewBattery("BAT0"),
+			components.NewBatteryBar("BAT0", 50),
 		},
 	}
 }
