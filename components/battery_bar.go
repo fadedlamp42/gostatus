@@ -21,7 +21,7 @@ func (b* BatteryBar) Render() string {
 func NewBatteryBar(id string, width int) *BatteryBar {
 	return &BatteryBar{
 		identifier: id,
-        width: width
+        width: width,
 	}
 }
 
@@ -29,7 +29,7 @@ func (b* BatteryBar) amounts() (int, int) {
 	file, err := os.Open(fmt.Sprintf("/sys/class/power_supply/%s/capacity", b.identifier))
 	if err != nil {
 		fmt.Println(fmt.Errorf("ERROR(%v)", err))
-		return -1
+		return -1, -1
 	}
 	defer file.Close()
 
@@ -39,7 +39,7 @@ func (b* BatteryBar) amounts() (int, int) {
 	n, err := strconv.ParseInt(scanner.Text(), 10, 32)
 	if err != nil {
 		fmt.Println(fmt.Errorf("ERROR(%v)", err))
-		return -1
+		return -1, -1
 	}
 
 	if n < 0 {
@@ -48,9 +48,9 @@ func (b* BatteryBar) amounts() (int, int) {
 		n = 100
 	}
 
-	percent := n / 100
+	percent := float64(n) / float64(100)
 
-	return ((percent*b.width), (b.width - (percent*b.width)))
+	return int(percent*float64(b.width)), int(b.width - int(percent*float64(b.width)))
 }
 
 func (b* BatteryBar) status() byte {
