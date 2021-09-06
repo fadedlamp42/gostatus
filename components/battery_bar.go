@@ -11,17 +11,24 @@ import (
 type BatteryBar struct {
     identifier string
     width int
+		showStatus bool
 }
 
 func (b* BatteryBar) Render() string {
   lhs, rhs := b.amounts()
-	return fmt.Sprintf("[%s%c%s]", strings.Repeat("=", lhs-1), b.status(), strings.Repeat("_", rhs))
+	if b.showStatus {
+		return fmt.Sprintf("%s%c%s", strings.Repeat("█", lhs-1), b.status(), strings.Repeat("_", rhs))
+	} else {
+		return fmt.Sprintf("%s%s", strings.Repeat("█", lhs), strings.Repeat("_", rhs))
+	}
+
 }
 
-func NewBatteryBar(id string, width int) *BatteryBar {
+func NewBatteryBar(id string, width int, showStatus bool) *BatteryBar {
 	return &BatteryBar{
 		identifier: id,
-        width: width,
+		width: width,
+		showStatus: showStatus,
 	}
 }
 
