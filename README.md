@@ -1,5 +1,5 @@
 # gostatus
-![image](https://i.imgur.com/BHhU7yK.png)
+<img src="https://i.imgur.com/p9HO9Cu.png" width=60%/>
 
 gostatus is an ergonomic status monitor alternative to [slstatus](https://github.com/drkhsh/slstatus).
 
