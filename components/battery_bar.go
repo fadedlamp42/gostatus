@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-    "strings"
+	"strings"
 )
 
 type BatteryBar struct {
-    identifier string
-    width int
-		showStatus bool
+	identifier string
+	width      int
+	showStatus bool
 }
 
-func (b* BatteryBar) Render() string {
-  lhs, rhs := b.amounts()
+func (b *BatteryBar) Render() string {
+	lhs, rhs := b.amounts()
 	if b.showStatus {
 		return fmt.Sprintf("%s%c%s", strings.Repeat("█", lhs-1), b.status(), strings.Repeat("_", rhs))
 	} else {
@@ -27,12 +27,12 @@ func (b* BatteryBar) Render() string {
 func NewBatteryBar(id string, width int, showStatus bool) *BatteryBar {
 	return &BatteryBar{
 		identifier: id,
-		width: width,
+		width:      width,
 		showStatus: showStatus,
 	}
 }
 
-func (b* BatteryBar) amounts() (int, int) {
+func (b *BatteryBar) amounts() (int, int) {
 	file, err := os.Open(fmt.Sprintf("/sys/class/power_supply/%s/capacity", b.identifier))
 	if err != nil {
 		fmt.Println(fmt.Errorf("ERROR(%v)", err))
@@ -57,10 +57,10 @@ func (b* BatteryBar) amounts() (int, int) {
 
 	percent := float64(n) / float64(100)
 
-	return int(percent*float64(b.width)), int(b.width - int(percent*float64(b.width)))
+	return int(percent * float64(b.width)), int(b.width - int(percent*float64(b.width)))
 }
 
-func (b* BatteryBar) status() byte {
+func (b *BatteryBar) status() byte {
 	file, err := os.Open(fmt.Sprintf("/sys/class/power_supply/%s/status", b.identifier))
 	if err != nil {
 		fmt.Println(fmt.Errorf("ERROR(%v)", err))
@@ -70,10 +70,13 @@ func (b* BatteryBar) status() byte {
 
 	scanner := bufio.NewScanner(file)
 	scanner.Scan()
-	switch(scanner.Text()) {
-	case "Charging": return '+'
-	case "Discharging": return '-'
-	case "Full": return '='
+	switch scanner.Text() {
+	case "Charging":
+		return '+'
+	case "Discharging":
+		return '-'
+	case "Full":
+		return '='
 	}
 	return '?'
 }

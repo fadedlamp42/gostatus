@@ -14,5 +14,9 @@ func (c *Command) Render() string {
 		return err.Error()
 	}
 
-	return string(output[:len(output)-1])
+	if(len(output) == 0) {
+		return ""
+	} else {
+		return string(output[:len(output)-1])
+	}
 }
