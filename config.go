@@ -17,6 +17,9 @@ func buildTopBar() model.Bar {
 			components.NewZonedTime("Asia/Seoul", "KST"),
 			components.NewCPU(),
 			&components.RAM{},
+			// TODO optimize current-monitor script, causes CPU spikes currently
+			//components.NewMinWidth(1920, components.NewNetwork("enp0s31f6")),
+			//components.NewMinWidth(1920, &components.Song{}),
 			components.NewNetwork("enp0s31f6"),
 			&components.Song{},
 			&components.Volume{},
@@ -29,7 +32,7 @@ func buildBottomBar() model.Bar {
 		Seperator: '|',
 		Edges:     [2]string{"", ""},
 		Components: []model.Component{
-			components.NewRSS(170, "  |  "),
+			components.NewRSS(233, " | "),
 		},
 	}
 }
