@@ -18,7 +18,7 @@ func (n *Network) Render() string {
 	up := current.up - n.previous.up
 	n.previous = current
 
-	return fmt.Sprintf("D/U: %8s/%8s", humanBytes(down), humanBytes(up))
+	return fmt.Sprintf("D/U: %9s/%9s", humanBytes(down), humanBytes(up))
 }
 
 func NewNetwork(interfaceName string) *Network {
