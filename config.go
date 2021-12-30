@@ -15,6 +15,7 @@ func buildTopBar() model.Bar {
 			&components.Time{},
 			components.NewZonedTime("America/Los_Angeles", "PST"),
 			components.NewZonedTime("Asia/Seoul", "KST"),
+			components.NewZonedTime("", "UTC"),
 			components.NewCPU(),
 			&components.RAM{},
 			// TODO optimize current-monitor script, causes CPU spikes currently
