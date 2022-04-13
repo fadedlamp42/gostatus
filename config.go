@@ -15,7 +15,7 @@ func buildTopBar() model.Bar {
 			&components.Time{},
 			components.NewCPU(),
 			&components.RAM{},
-			components.NewNetwork("wlp3s0"),
+			components.NewNetwork("wlp108s0"),
 			&components.Volume{},
 		},
 	}
