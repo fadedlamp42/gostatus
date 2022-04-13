@@ -14,7 +14,6 @@ func buildTopBar() model.Bar {
 		Components: []model.Component{
 			&components.Time{},
 			components.NewZonedTime("America/Los_Angeles", "PST"),
-			components.NewZonedTime("Asia/Seoul", "KST"),
 			components.NewZonedTime("", "UTC"),
 			components.NewCPU(),
 			&components.RAM{},
