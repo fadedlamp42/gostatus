@@ -5,7 +5,7 @@ import (
 	"github.com/fadedlamp42/gostatus/model"
 )
 
-const UPDATES_PER_SECOND = 0.5
+const UPDATES_PER_SECOND = 2
 
 func buildTopBar() model.Bar {
 	return model.Bar{
@@ -15,7 +15,7 @@ func buildTopBar() model.Bar {
 			&components.Time{},
 			components.NewCPU(),
 			&components.RAM{},
-			components.NewNetwork("wlp3s0"),
+			components.NewNetwork("wlp108s0"),
 			components.NewZonedTime("", "UTC"),
 			&components.Song{},
 			&components.Volume{},

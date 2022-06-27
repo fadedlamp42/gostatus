@@ -15,7 +15,7 @@ type BatteryBar struct {
 
 func (b* BatteryBar) Render() string {
   lhs, rhs := b.amounts()
-	return fmt.Sprintf("[%s%s%s]", strings.Repeat("=", lhs-1), b.status(), strings.Repeat("_", rhs))
+	return fmt.Sprintf("[%v%c%v]", strings.Repeat("=", lhs-1), b.status(), strings.Repeat("_", rhs))
 }
 
 func NewBatteryBar(id string, width int) *BatteryBar {
