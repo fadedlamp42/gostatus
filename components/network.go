@@ -1,4 +1,3 @@
-
 package components
 
 import (
@@ -10,7 +9,7 @@ import (
 
 type Network struct {
 	interfaceName string
-	previous *stats
+	previous      *stats
 }
 
 func (n *Network) Render() string {
@@ -19,13 +18,13 @@ func (n *Network) Render() string {
 	up := current.up - n.previous.up
 	n.previous = current
 
-	return fmt.Sprintf("D/U: %s/%s", humanBytes(down), humanBytes(up))
+	return fmt.Sprintf("D/U: %9s/%9s", humanBytes(down), humanBytes(up))
 }
 
 func NewNetwork(interfaceName string) *Network {
 	return &Network{
 		interfaceName: interfaceName,
-		previous: readStats(interfaceName),
+		previous:      readStats(interfaceName),
 	}
 }
 
@@ -56,7 +55,6 @@ func readStats(interfaceName string) *stats {
 		return &stats{-1, -1}
 	}
 
-
 	scanner = bufio.NewScanner(upFile)
 	scanner.Scan()
 	up, err := strconv.ParseInt(scanner.Text(), 10, 64)
@@ -66,7 +64,7 @@ func readStats(interfaceName string) *stats {
 	}
 
 	return &stats{
-		up: up,
+		up:   up,
 		down: down,
 	}
 }

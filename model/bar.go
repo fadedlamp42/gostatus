@@ -8,18 +8,24 @@ import (
 // and renders a string usable as a status bar
 type Bar struct {
 	Components []Component
-	Seperator rune
-	Edges [2]string
+	Seperator  rune
+	Edges      [2]string
 }
 
 func (b *Bar) Render() string {
 	result := fmt.Sprintf("%s ", b.Edges[0])
-	for i := range(b.Components) {
+	for i := range b.Components {
+		renderOutput := fmt.Sprintf("%v ", b.Components[i].Render())
+
+		if len(renderOutput) == 1 {
+			continue
+		}
+
 		if i != 0 {
 			result += fmt.Sprintf("%c ", b.Seperator)
 		}
 
-		result += fmt.Sprintf("%v ", b.Components[i].Render())
+		result += renderOutput
 	}
 	result += b.Edges[1]
 
