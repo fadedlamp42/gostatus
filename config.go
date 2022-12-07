@@ -13,9 +13,13 @@ func buildTopBar() model.Bar {
 		Edges:     [2]string{"[", "]"},
 		Components: []model.Component{
 			&components.Time{},
+			//components.NewZonedTime("America/Los_Angeles", "PST"),
+			components.NewZonedTime("America/New_York", "EST"),
+			components.NewZonedTime("", "UTC"),
 			components.NewCPU(),
 			&components.RAM{},
 			components.NewNetwork("wlp108s0"),
+			&components.Song{},
 			&components.Volume{},
 		},
 	}
