@@ -13,7 +13,7 @@ func buildTopBar() model.Bar {
 		Edges:     [2]string{"[", "]"},
 		Components: []model.Component{
 			&components.Time{},
-			components.NewZonedTime("America/Los_Angeles", "PST"),
+			//components.NewZonedTime("America/Los_Angeles", "PST"),
 			components.NewZonedTime("", "UTC"),
 			components.NewCPU(),
 			&components.RAM{},
@@ -21,7 +21,6 @@ func buildTopBar() model.Bar {
 			//components.NewMinWidth(1920, components.NewNetwork("enp0s31f6")),
 			//components.NewMinWidth(1920, &components.Song{}),
 			components.NewNetwork("enp0s31f6"),
-			&components.Song{},
 			&components.Volume{},
 		},
 	}
@@ -32,7 +31,8 @@ func buildBottomBar() model.Bar {
 		Seperator: '|',
 		Edges:     [2]string{"", ""},
 		Components: []model.Component{
-			components.NewRSS(233, " | "),
+			//components.NewRSS(233, " | "),
+			&components.Song{},
 		},
 	}
 }
