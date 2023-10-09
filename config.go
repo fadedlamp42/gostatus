@@ -5,7 +5,7 @@ import (
 	"github.com/fadedlamp42/gostatus/model"
 )
 
-const UPDATES_PER_SECOND = 1
+const UPDATES_PER_SECOND = 0.1
 
 func buildTopBar() model.Bar {
 	return model.Bar{
